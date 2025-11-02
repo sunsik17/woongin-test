@@ -23,9 +23,10 @@ public interface ProductRepository extends JpaRepository<Product, Long> {
     메서드명과 파라미터명이 일치하면 코드의 의도를 더 직관적으로 전달할 수 있습니다.
     다른 개발자가 봐도 'category를 기준으로 상품을 조회한다'는 것을 바로 이해할 수 있습니다.
 
-    - 문제 2: 성능 문제
+    - 문제 2: 성능
     - 원인 : Page객체를 반환하기 위해 hibernate가 count쿼리를 발생
     - 개선안:
+    대용량 데이터가 된 다면
     offset, limit을 이용한 페이지네이션 -> where, limit 이용한 페이지네이션으로 변경
     - 선택 근거 :
     Page객체를 반환하기 위해 hibernate가 조회 할때마다 count쿼리를 발생시켜 비효율적입니다.
