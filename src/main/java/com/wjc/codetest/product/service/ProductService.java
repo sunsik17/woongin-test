@@ -77,9 +77,9 @@ public class ProductService {
     }
     /*
     - 문제 : 불필요한 내부 메소드 호출
-    - 원인 : getProductById()를 사용해 의미 있는 재사용처럼 보이지만, 해당 메소드는 실제로 아무 명시적인 기능이 없습니다.
+    - 원인 : getProductById()를 사용해 의미 있는 재사용처럼 보이지만, 해당 메소드는 repository.findById()로 대체 할 수 있습니다.
     - 개선안 :
-    repository.findById()를 이용해 의도한 에러메세지를 보여주고 delete()를 사용하거나
+    Optional객체를 반환하는 repository.findById().orElseThrow()를 이용해 의도한 에러메세지를 보여주고 delete()를 사용하거나
     기능만을 위한 것이라면 repository.deleteById()를 이용해 예외처리를 맡기는 것이 나아 보입니다.
     - 트레이드오프:
     repository.deleteById()를 이용하면 코드 한줄로 조회 삭제 로직이 가능합니다만
