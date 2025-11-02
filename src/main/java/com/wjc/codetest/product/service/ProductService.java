@@ -69,7 +69,7 @@ public class ProductService {
     return productRepository.save(product); 로 단순화 해주세요
     - 선택 근거:
     repository 직접 호출로 데이터 접근 로직이 명확해집니다.
-    중간 변수 제거로 코드 가독성 개선
+    중간 변수 제거로 코드 가독성이 좋아집니다.
     */
     public void deleteById(Long productId) {
         Product product = getProductById(productId);
@@ -82,8 +82,8 @@ public class ProductService {
     repository.findById()를 이용해 의도한 에러메세지를 보여주고 delete()를 사용하거나
     기능만을 위한 것이라면 repository.deleteById()를 이용해 예외처리를 맡기는 것이 나아 보입니다.
     - 트레이드오프:
-    repository.deleteById()를 이용하면 코드 한줄로 조회 삭제 로직이 가능합니다만,
-    데이터를 찾지 못하면 EmptyResultDataAccessException이 고정으로 던져지게 되고
+    repository.deleteById()를 이용하면 코드 한줄로 조회 삭제 로직이 가능합니다만
+    데이터를 찾지 못하면 SimpleJpaRepository에서 고정으로 예외가 던져지게 되고
     findById() + delete()를 이용하면 예외처리를 커스텀할 수 있다는 장점이 있습니다.
      */
 
@@ -111,7 +111,7 @@ public class ProductService {
 
 /*
 문제 : 전체 적인 코드 퀄리티
-원인 : new 생성자를 통한 객체 생성
+원인 : 생성자를 통한 객체 생성
 개선안 : 디자인 패턴 중 빌더 패턴 채택
 선택 근거 :
 생성하는 객체의 속성이 많을 수록 순서를 외워야 하는 번거로움이 사라집니다.
