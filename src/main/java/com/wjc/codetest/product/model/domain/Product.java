@@ -16,10 +16,11 @@ import lombok.Setter;
    public void modifyName(String name) {
      this.name = name;
    }
-   으로 수정되어야 하고, category, name 등 수정하는 파라미터 검증 메소드도 추가하면 좋을것 같습니다.(null 체크, 글자 수 제한 등)
+   으로 수정되어야 하고, category, name 등 수정하는 파라미터 검증 메소드도 필요 합니다.(null 체크, 글자 수 제한 등)
 
    - 선택 근거 :
    메서드 이름으로 의도를 표현할 수 있습니다.
+   비즈니스 요구사항을 해결할 수 있고 사용자의 입력이 올바른지 확인할 수 있습니다.
  */
 public class Product {
 
