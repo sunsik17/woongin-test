@@ -28,7 +28,7 @@ public class GlobalExceptionHandler {
 /*
 - 문제 1: 모든 RuntimeException을 무조건 서버에러(상태코드 500)으로 처리 하고 있습니다.
 - 원인 : 코드에서 runtimeException을 직접 던지고, http상태 코드와 메세지를 구분하지 않고 있습니다.
-- 개선안 : CustomException을 만들어 사용합니다.
+- 개선안 : CustomException을 만들어 사용하고, 다른 @ExceptionHandler도 추가합니다.
 예시
 CodeTestException.java
 public class CodeTestException extends RuntimeException {
